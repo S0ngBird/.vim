@@ -1,0 +1,108 @@
+VimNotes - Benjamin Patton
+
+-------------------------------------------------------------------------------------------------
+----------------------------Section 1: COMMAND STRUCTURE-----------------------------------------
+-------------------------------------------------------------------------------------------------
+
+Some basic assumptions:
+1. Vim commands are composed of Verbs, Modifiers, and Nouns
+2. Vim commands are akin to sentences in a spoken language
+
+
+So... Entering combinations of verbs, modifiers, and nouns can produce
+
+understandable and complex vim commands, given you know the meaning of each command
+
+Here are the basic commands:
+
+VERBS:----------
+
+d            - delete
+c            - change
+y            - yank (copy)
+v            - visually select (highlighting)
+
+MODIFIERS:------
+
+i            - inside
+a            - around
+NUM          - number(1,2,3)
+t            - search for something and stop before (inline, case sensitive)
+f            - search for something and land on it (inline, case sensitive)
+/            - find a string (literal or regex)
+
+NOUNS:----------
+
+w            - word
+s            - sentence
+)            - sentence (another way of doing it)
+p	     - paragraph
+}            - paragraph (another way of doing it)
+t            - tag (think HTML/XML)
+b            - block (think programming)
+
+So... Command structure is as follows: Verb - Modifier - Noun
+Using this structure, we can come up with more complex commands:
+
+d2w          - delete 2 words
+cis          - change inside sentence (delete current one and enter insert mode)
+yip          - yank inside paragraph (copy the paragraph you're in)
+
+-------------------------------------------------------------------------------------------------
+---------------------------------Section 2: SEARCHING--------------------------------------------
+-------------------------------------------------------------------------------------------------
+
+Vim has a lot of powerful features centered around searching for things in your work.
+
+Here are a few search commands:---------
+
+/(string)    - search for a string
+t            - jump up to a character
+f            - jump onto a character
+*            - search for other instances of the word under your cursor
+n            - jump to the next instance when you've searched for a string
+N            - same as n, but goes to previous instance
+;            - go to the next instance when you've jumped to a character
+,            - go to the previous instance when you've jumped to a character
+
+If you've been reading this hopefully you know about the movement keys: h,j,k,l. 
+
+h            - move left
+j            - move down
+k            - move up
+l            - move right
+
+Also you're vimrc should be set up so rollng jk can exit you from insert/visual/whatever mode.
+
+Moving through line:---------
+
+0            - move to the beginning of the line
+$            - move to the end of the line
+^            - move to the first non-blank character in the line
+t"           - jumo to right before the next quotes
+f"           - jump and land on the next quotes
+
+Moveing by word:-------------
+
+w            - move forward one word
+b            - move back on word
+e            - move to the end of the word
+W            - move forward one big word
+B            - move back one big word
+
+Moving within the screen:--------
+
+H            - move to the top of the screen
+M            - move to the middle of the screen
+L            - move to the bottom of the screen
+gg           - go to the top of the file
+G            - go to the bottom of the file
+NUMgg        - move to the specified line number
+
+-------------------------------------------------------------------------------------------------
+---------------------------------Final Section: END NOTES----------------------------------------
+-------------------------------------------------------------------------------------------------
+
+A couple endNotes: just little things to keep in mind:---------
+
+ZZ           - an easier way to do :wq
