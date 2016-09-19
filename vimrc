@@ -24,3 +24,6 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
+
+" Disable automatic comment isertion
+au FileType c,cpp setlocal comments-=:// comments+=f://
