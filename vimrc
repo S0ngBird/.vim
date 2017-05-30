@@ -25,8 +25,12 @@ nnoremap <up> <nop>
 " Disable automatic comment isertion
 au FileType c,cpp setlocal comments-=:// comments+=f://
 
-" Learning vimscript the hard way
-noremap - ddp
-noremap _ ddkP
-inoremap <c-u> <esc>bvwUwa
-nnoremap <c-u> bvwUw
+" new stuff!
+let mapleader = "\\"
+let maplocalleader = ","
+nnoremap <leader>- ddp
+nnoremap <leader>= ddkP
+inoremap <leader><c-u> <esc>bvwUwa
+nnoremap <leader><c-u> bvwUw
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
