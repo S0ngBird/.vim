@@ -1,6 +1,7 @@
 " Set a few key changes
 inoremap jk <ESC>
 set encoding=utf-8
+let mapleader = "\\"
 syntax on
 set number
 set nowrap
@@ -25,12 +26,14 @@ nnoremap <up> <nop>
 " Disable automatic comment isertion
 au FileType c,cpp setlocal comments-=:// comments+=f://
 
-" new stuff!
-let mapleader = "\\"
-let maplocalleader = ","
+" New mappings - from Learning vimscript the hard way. Will organize later
 nnoremap <leader>- ddp
 nnoremap <leader>= ddkP
-inoremap <leader><c-u> <esc>bvwUwa
-nnoremap <leader><c-u> bvwUw
+inoremap <leader>uu <esc>bvwUw
+nnoremap <leader>uu bvwUw
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+iabbrev ssig Ben Patton
+iabbrev @@ ben.patton01@gmail.com
+nnoremap <leader>'w viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>"w viw<esc>a"<esc>bi"<esc>lel
