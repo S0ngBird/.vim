@@ -45,6 +45,7 @@ So... Command structure is as follows: Verb - Modifier - Noun
 Using this structure, we can come up with more complex commands:
 
 d2w          - delete 2 words
+viw          - visually select current word
 cis          - change inside sentence (delete current one and enter insert mode)
 yip          - yank inside paragraph (copy the paragraph you're in)
 
@@ -98,6 +99,8 @@ L            - move to the bottom of the screen
 gg           - go to the top of the file
 G            - go to the bottom of the file
 NUMgg        - move to the specified line number
+
+I "might" add more to this when I feel like it, but maybe not.
 
 -------------------------------------------------------------------------------------------------
 ---------------------------------Final Section: END NOTES----------------------------------------

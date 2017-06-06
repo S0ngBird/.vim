@@ -35,5 +35,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 iabbrev ssig Ben Patton
 iabbrev @@ ben.patton01@gmail.com
-nnoremap <leader>'w viw<esc>a'<esc>bi'<esc>lel
-nnoremap <leader>"w viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap H 0
+nnoremap L $
