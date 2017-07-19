@@ -4,6 +4,8 @@ let mapleader = "\\"
 syntax on
 set number
 set nowrap
+set t_Co=256
+colorscheme molokai
 
 " Set indentation stuff
 set tabstop=4
@@ -45,3 +47,5 @@ nnoremap L $
 " Quickly editing and sourcing vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" A few simple autocommands
