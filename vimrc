@@ -1,6 +1,7 @@
 " Set a few key things
 set encoding=utf-8
 let mapleader = "\\"
+let maplocalleader = "`"
 syntax on
 set number
 set nowrap
@@ -24,9 +25,6 @@ nnoremap <right> <nop>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 
-" Disable automatic comment isertion
-au FileType c,cpp setlocal comments-=:// comments+=f://
-
 " Simple autocompletions
 iabbrev ssig Ben Patton
 iabbrev @@ ben.patton01@gmail.com
@@ -49,3 +47,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " A few simple autocommands
+autocmd FileType c,cpp setlocal comments-=:// comments+=f://
+autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
