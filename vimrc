@@ -1,5 +1,5 @@
 " Set a few key things
-set encoding=utf-8
+set encoding=utf-8 
 let mapleader = "\\"
 let maplocalleader = "`"
 syntax on
@@ -41,12 +41,23 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 inoremap jk <esc>
 nnoremap H 0
 nnoremap L $
+nnoremap J G
+nnoremap K gg
 
 " Quickly editing and sourcing vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" A few simple autocommands
-autocmd FileType c,cpp setlocal comments-=:// comments+=f://
-autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
+" C/CPP autocommands
+augroup filetype_c_cpp
+    autocmd!
+    autocmd FileType c,cpp setlocal comments-=:// comments+=f://
+    autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
+augroup END
+
+" Python autocommands
+augroup filetype_python
+    autocmd!
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python :iabbrev <buffer> iff if:<left>
+augroup END
