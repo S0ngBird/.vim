@@ -53,11 +53,18 @@ augroup filetype_c_cpp
     autocmd!
     autocmd FileType c,cpp setlocal comments-=:// comments+=f://
     autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType c,cpp :iabbrev <buffer> iff if<space>(true)<cr>{<cr>}
 augroup END
 
 " Python autocommands
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python :iabbrev <buffer> iff if:<left>
+    autocmd FileType python :iabbrev <buffer> iff if\<space>True:<cr>
+augroup END
+
+" Java autocommands
+augroup filetype_java
+    autocmd!
+    autocmd BufNewFile,BufReadPre *.java :iabbrev <buffer> iff if<space>(true)<cr>{<cr>}
 augroup END
