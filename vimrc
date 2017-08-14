@@ -53,6 +53,8 @@ nnoremap H 0
 nnoremap L $
 nnoremap J G
 nnoremap K gg
+
+" Mappings for moving between splits, buffers, and tabs
 nnoremap <leader>. <c-w><c-w>
 
 " Quickly editing and sourcing vimrc
@@ -71,7 +73,7 @@ augroup END
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python :iabbrev <buffer> iff if\<space>False:<cr>
+    autocmd FileType python :iabbrev <buffer> iff if<space>False:<cr>
 augroup END
 
 " Java autocommands
