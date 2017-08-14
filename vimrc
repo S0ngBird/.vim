@@ -8,6 +8,10 @@ set nowrap
 set t_Co=256
 colorscheme molokai
 
+" Turn on pathogen
+execute pathogen#infect()
+filetype plugin indent on
+
 " Set indentation stuff
 set tabstop=4
 set autoindent
