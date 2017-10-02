@@ -69,7 +69,7 @@ augroup filetype_c_cpp
     autocmd!
     autocmd FileType c,cpp setlocal comments-=:// comments+=f://
     autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType c,cpp :iabbrev <buffer> iff if<space>(false)<cr>{<cr>}
+    autocmd FileType c,cpp iabbrev  <buffer> iff if<space>(false)<cr>{<cr>}
     autocmd FileType c,cpp nnoremap <buffer> <s-r><cr> :!make
 augroup END
 
@@ -85,7 +85,8 @@ augroup END
 
 augroup filetype_bash
     autocmd!
-    autocmd BufNewFile,BufReadPre *.sh :iabbrev <buffer> iff if<space>
+    autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> iff if<space>
+    autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> #! #!/bin/bash
 augroup END
 
 " Java autocommands
