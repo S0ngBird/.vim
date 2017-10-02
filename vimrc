@@ -34,7 +34,7 @@ vnoremap <down> <nop>
 vnoremap <up> <nop>
 
 " Simple autocompletions
-iabbrev ssig Ben Patton
+iabbrev ssig Written by: Benjamin Patton
 iabbrev @@ ben.patton01@gmail.com
 
 " Mappings for manipulating text
@@ -74,8 +74,10 @@ augroup END
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python :iabbrev <buffer> iff if<space>False:<cr>
+    autocmd FileType python iabbrev  <buffer> iff if<space>False:<cr>
     autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
+    autocmd FileType python iabbrev  <buffer> shebang #!/usr/bin/env python3
+    autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
 augroup END
 
 augroup filetype_bash
