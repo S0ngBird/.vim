@@ -61,6 +61,9 @@ nnoremap <leader>. <c-w><c-w>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Openning NERDTree more easily
+nnoremap <leader>// :NERDTree<cr>
+
 " C/CPP autocommands
 augroup filetype_c_cpp
     autocmd!
