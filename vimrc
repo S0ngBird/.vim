@@ -64,6 +64,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Openning NERDTree more easily
 nnoremap <leader>// :NERDTree<cr>
 
+nnoremap <F8> :TagbarToggle<CR>
+
 " C/CPP autocommands
 augroup filetype_c_cpp
     autocmd!
