@@ -69,10 +69,14 @@ nnoremap <F8> :TagbarToggle<CR>
 " C/CPP autocommands
 augroup filetype_c_cpp
     autocmd!
+    " Simple C/CPP autocommands
     autocmd FileType c,cpp setlocal comments-=:// comments+=f://
     autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
     autocmd FileType c,cpp iabbrev  <buffer> iff if<space>(false)<cr>{<cr>}
     autocmd FileType c,cpp nnoremap <buffer> <s-r><cr> :!make
+
+    " Starting comment
+    autocmd FileType c,cpp iabbrev <buffer> csig /**<cr>FILENAME<cr>DESCRIPTION<cr><cr>Written by: Ben Patton<cr><bs>/
 augroup END
 
 " Python autocommands
