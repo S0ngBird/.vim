@@ -4,6 +4,7 @@ let mapleader = "\\"
 let maplocalleader = "`"
 syntax on
 set number
+set laststatus=2
 set nowrap
 set t_Co=256
 colorscheme molokai
@@ -15,9 +16,14 @@ filetype plugin indent on
 " Set indentation stuff
 set tabstop=4
 set autoindent
-set softtabstop=4
+set softtabstop=4 
 set shiftwidth=4
 set expandtab
+
+" Custom statusline
+set statusline=%f           " shows the filename
+set statusline+=%=          " align everything else to the left
+set statusline+=%04l/%04L   " show the current line number, out of the total
 
 " Turn off arrow keys
 inoremap <left> <nop>
@@ -36,6 +42,12 @@ vnoremap <up> <nop>
 " Simple autocompletions
 iabbrev ssig Written by: Benjamin Patton
 iabbrev @@ ben.patton01@gmail.com
+
+" Some test operator-pending mappings
+onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap il{ :<c-u>normal! F}vi{<cr>
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! f)vi(<cr>
 
 " Mappings for manipulating text
 nnoremap <leader>- ddp
@@ -64,7 +76,15 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Openning NERDTree more easily
 nnoremap <leader>// :NERDTree<cr>
 
+" Toggle the TagBar plugin
 nnoremap <F8> :TagbarToggle<CR>
+
+" Vimscript file settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
 
 " C/CPP autocommands
 augroup filetype_c_cpp
