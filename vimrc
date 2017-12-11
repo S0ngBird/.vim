@@ -26,6 +26,8 @@ set expandtab
 " Custom statusline {{{
 set statusline=%f           " shows the filename
 set statusline+=%=          " align everything else to the left
+set statusline+=%03c        " show the current column, out of the total
+set statusline+=\ -=-\      " a divider
 set statusline+=%04l/%04L   " show the current line number, out of the total
 " }}}
 
