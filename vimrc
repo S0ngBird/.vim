@@ -150,7 +150,7 @@ augroup END
 " Perl autocommands {{{
 augroup filetype_perl
     autocmd!
-    autocmd FileType perl iabbrev <buffer> #! #!/usr/bin/perl<cr>use<space>warnings;<cr>
+    autocmd FileType perl iabbrev <buffer> #! #!/usr/bin/perl<cr>use<space>warnings;
     autocmd FileType perl setlocal comments-=:# comments+=f:#
 augroup END
 " }}}
