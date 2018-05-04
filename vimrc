@@ -89,6 +89,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Plugin mappings {{{
 nnoremap <leader>// :NERDTree<cr>
 nnoremap <F8> :TagbarToggle<CR>
+nnoremap gs :Gstatus<cr>
 " }}}
 
 " Vimscript file settings {{{
