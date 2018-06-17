@@ -16,11 +16,11 @@ filetype plugin indent on
 " }}}
 
 " Set indentation stuff {{{
-set tabstop=4
-set autoindent
-set softtabstop=4 
-set shiftwidth=4
-set expandtab
+let &tabstop=4
+let &autoindent=1
+let &softtabstop=4 
+let &shiftwidth=4
+let &expandtab=1
 " }}}
 
 " Custom statusline {{{
@@ -104,7 +104,7 @@ augroup END
 augroup filetype_c_cpp
     autocmd!
     " Simple C/CPP autocommands
-    autocmd FileType c,cpp setlocal comments-=:// comments+=f://
+    autocmd FileType c,cpp set comments-=:// comments+=f://
     autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
     autocmd FileType c,cpp iabbrev  <buffer> iff if<space>(false)<cr>{<cr>}
     autocmd FileType c,cpp nnoremap <buffer> <s-r><cr> :!make
@@ -152,6 +152,7 @@ augroup END
 augroup filetype_perl
     autocmd!
     autocmd FileType perl iabbrev <buffer> #! #!/usr/bin/perl<cr>use<space>warnings;
-    autocmd FileType perl setlocal comments-=:# comments+=f:#
+    autocmd FileType perl set comments-=:# comments+=f:#
 augroup END
 " }}}
+
