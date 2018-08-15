@@ -5,6 +5,7 @@ let maplocalleader = "`"
 syntax on
 set number
 set laststatus=2
+set splitright
 set nowrap
 set t_Co=256
 colorscheme molokai
@@ -87,7 +88,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " }}}
 
 " Plugin mappings {{{
-nnoremap <leader>// :NERDTree<cr>
+nnoremap <leader>// :NERDTreeToggle<cr>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap gs :Gstatus<cr>
 " }}}
