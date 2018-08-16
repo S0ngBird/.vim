@@ -5,6 +5,7 @@ let maplocalleader = "`"
 syntax on
 set number
 set laststatus=2
+set textwidth=80
 set splitright
 set nowrap
 set t_Co=256

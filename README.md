@@ -1,14 +1,10 @@
-# .vim
+### .vim
 my .vim directory
 
-Topic One
-=========
+Plugins for this .vimrc should be managed using [pathogen](https://github.com/tpope/vim-pathogen)
 
-This is some text about topic one.
+##### Plugins to be used with my .vimrc:
 
-It has multiple paragraphs.
-
-Topic Two
-=========
-
-This is some text about topic two.  It has only one paragraph.
+* [NERDTree](https://github.com/scrooloose/nerdtree)
+* [Fugitive.vim](https://github.com/tpope/vim-fugitive)
+* [Tagbar](https://github.com/majutsushi/tagbar) (to be used with ctags)
