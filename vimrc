@@ -8,6 +8,7 @@ set laststatus=2
 set splitright
 set nowrap
 set t_Co=256
+set hlsearch incsearch
 colorscheme molokai
 " }}}
 
