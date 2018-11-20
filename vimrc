@@ -3,9 +3,8 @@ set encoding=utf-8
 let mapleader = "\\"
 let maplocalleader = "`"
 syntax on
-set number
+set number relativenumber
 set laststatus=2
-set textwidth=80
 set splitright
 set nowrap
 set t_Co=256
@@ -81,6 +80,7 @@ nnoremap K gg
 
 " Mappings for moving between splits, buffers, and tabs {{{
 nnoremap <leader>. <c-w><c-w>
+nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
 " Quickly editing and sourcing vimrc {{{
