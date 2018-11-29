@@ -170,4 +170,9 @@ endfunction
 " Mapping for GrepWord func
 nnoremap <leader>gw :call GrepWord()<cr>
 
+" A function that says hello!
+function! Hello()
+    echom "Hello!"
+endfunction
+
 " }}}
