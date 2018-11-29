@@ -135,13 +135,6 @@ augroup filetype_bash
 augroup END
 " }}}
 
-" Java autocommands {{{
-augroup filetype_java
-    autocmd!
-    autocmd BufNewFile,BufReadPre *.java :iabbrev <buffer> iff if<space>(false)<cr>{<cr>}
-augroup END
-" }}}
-
 " XML autocommands {{{
 augroup filetype_xml
     autocmd!
