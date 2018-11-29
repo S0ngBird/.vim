@@ -159,3 +159,15 @@ augroup filetype_perl
 augroup END
 " }}}
 
+" Some Dope Functions {{{
+
+" A function that greps the project for the current word
+function! GrepWord()
+    let word = expand("<cword>")
+    execute '!grep --color=auto -r ' . word
+endfunction
+
+" Mapping for GrepWord func
+nnoremap <leader>gw :call GrepWord()<cr>
+
+" }}}
