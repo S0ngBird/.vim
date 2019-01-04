@@ -135,15 +135,6 @@ augroup filetype_bash
 augroup END
 " }}}
 
-" XML autocommands {{{
-augroup filetype_xml
-    autocmd!
-    " the following autocmd is incomplete, need to write it so it deletes
-    " inside angle brackets
-    "autocmd BufNewFile,BufReadPre *.xml onoremap <buffer> i<>
-augroup END
-" }}}
-
 " Perl autocommands {{{
 augroup filetype_perl
     autocmd!
@@ -159,13 +150,6 @@ function! GrepWord()
     let word = expand("<cword>")
     execute '!grep --color=auto -r ' . word
 endfunction
-
-" Mapping for GrepWord func
 nnoremap <leader>gw :call GrepWord()<cr>
-
-" A function that says hello!
-function! Hello()
-    echom "Hello!"
-endfunction
 
 " }}}
