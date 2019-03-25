@@ -151,14 +151,6 @@ augroup filetype_bash
 augroup END
 " }}}
 
-" Perl autocommands {{{
-augroup filetype_perl
-    autocmd!
-    autocmd FileType perl iabbrev <buffer> #! #!/usr/bin/perl<cr>use<space>warnings;
-    autocmd FileType perl set comments-=:# comments+=f:#
-augroup END
-" }}}
-
 " Some Dope Functions {{{
 
 " SHOULD grep the whole working dir and all subdirs for word under cursor
