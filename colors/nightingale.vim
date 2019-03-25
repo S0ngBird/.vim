@@ -19,15 +19,17 @@ set background=dark
 "
 if &t_Co > 255
 
-    " normal text color=fg. whole vim background color=bg
-    hi Normal           ctermfg=252     ctermbg=16
-    hi CursorLine       ctermbg=234                     cterm=none
-    hi CursorLineNr     ctermfg=39                      cterm=none
-    hi Comment          ctermfg=244
-    hi Boolean          ctermfg=135
-    hi Character        ctermfg=144
+    hi Normal           ctermfg=252     ctermbg=234                 " Normal text is fg, whole editor background color is bg
+    hi CursorLine       ctermbg=234                     cterm=none  " Color of the whole line the cursor is currently on
+    hi CursorLineNr     ctermfg=39                      cterm=none  " The line number color of the current line
+
+    " colors for various data types
+    hi Comment          ctermfg=244                                 
+    hi Boolean          ctermfg=135                                 
+    hi Character        ctermfg=144                                 
     hi Number           ctermfg=135
     hi String           ctermfg=30
+    hi Float            ctermfg=135
 
     " if else else ifs
     hi Conditional      ctermfg=71                      cterm=bold
@@ -47,13 +49,12 @@ if &t_Co > 255
     hi Error            ctermfg=219     ctermbg=89
     hi ErrorMsg         ctermfg=199     ctermbg=16      cterm=bold
     hi Exception        ctermfg=118                     cterm=bold
-    hi Float            ctermfg=135
     hi FoldColumn       ctermfg=67      ctermbg=16
     hi Folded           ctermfg=67      ctermbg=16
     hi Function         ctermfg=161                     cterm=bold
 
     " variable color
-    hi Identifier       ctermfg=104                     cterm=none
+    hi Identifier       ctermfg=126                     cterm=none
 
     hi Ignore           ctermfg=244     ctermbg=232
     hi IncSearch        ctermfg=193     ctermbg=16

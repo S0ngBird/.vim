@@ -9,7 +9,7 @@ set splitright
 set nowrap
 set t_Co=256
 set hlsearch incsearch
-colorscheme molokai
+colorscheme nightingale
 " }}}
 
 " Turn on pathogen {{{
@@ -80,22 +80,24 @@ nnoremap K gg
 " }}}
 
 " Mappings for moving between splits, buffers, and tabs {{{
-nnoremap <leader>. <c-w><c-w>
+nnoremap <leader>. <c-w>l
+nnoremap <leader>, <c-w>h
 nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
-" Quickly editing and sourcing vimrc {{{
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-" }}}
-
-" Plugin mappings {{{
-nnoremap <leader>// :NERDTreeToggle<cr>
+" Plugin mappings and autocommands {{{
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap gs :Gstatus<cr>
+
+nnoremap <leader>// :NERDTreeToggle<cr>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
-" Vimscript file settings {{{
+" Vimscript and vimrc things {{{
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
@@ -111,9 +113,23 @@ augroup filetype_c_cpp
     autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
     autocmd FileType c,cpp iabbrev  <buffer> iff if<space>(false)<cr>{<cr>}
     autocmd FileType c,cpp nnoremap <buffer> <s-r><cr> :!make
+    autocmd FileType c,cpp set tabstop=8
+    autocmd FileType c,cpp set softtabstop=8
+    autocmd FileType c,cpp set shiftwidth=8
 
     " Starting comment
     autocmd FileType c,cpp iabbrev <buffer> csig /**<cr>FILENAME<cr>DESCRIPTION<cr><cr>Written by: Ben Patton<cr><bs>/
+augroup END
+" }}}
+
+" ASM autocommands {{{
+augroup filetype_asm
+    autocmd!
+
+    " basically just getting the indentation all nice and kernally
+    autocmd FileType asm set tabstop=8
+    autocmd FileType asm set softtabstop=8
+    autocmd FileType asm set shiftwidth=8
 augroup END
 " }}}
 
@@ -145,11 +161,18 @@ augroup END
 
 " Some Dope Functions {{{
 
-" A function that greps the project for the current word
+" SHOULD grep the whole working dir and all subdirs for word under cursor
 function! GrepWord()
     let word = expand("<cword>")
     execute '!grep --color=auto -r ' . word
 endfunction
 nnoremap <leader>gw :call GrepWord()<cr>
+
+" Opens the packet capture file under the cursor
+" Still not great, iTerm2 doesn't seem react very well
+function! OpenPcap()
+    let filename = expand("<cfile>")
+    execute 'silent !wireshark ' . filename . ' &'
+endfunction
 
 " }}}
