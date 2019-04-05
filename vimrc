@@ -67,8 +67,12 @@ inoremap <leader>uu <esc>viwU
 nnoremap <leader>uu viwU
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-vnoremap <leader>- dpv
-vnoremap <leader>= dkPv
+" }}}
+
+" Mappings for search/highlighting {{{
+nnoremap <leader>w :match Error /\v\s+$/<cr>
+nnoremap <leader>W :match None<cr>
+"nnoremap <leader>vs 
 " }}}
 
 " Mappings for easier movement {{{
@@ -77,9 +81,6 @@ nnoremap H 0
 nnoremap L $
 nnoremap J G
 nnoremap K gg
-" }}}
-
-" Mappings for moving between splits, buffers, and tabs {{{
 nnoremap <leader>. <c-w>l
 nnoremap <leader>, <c-w>h
 nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
@@ -102,6 +103,16 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType vim setlocal foldlevel=0
+augroup END
+" }}}
+
+" Python autocommands {{{
+augroup filetype_python
+    autocmd!
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python iabbrev  <buffer> iff if<space>False:<cr>
+    autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
+    autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
 augroup END
 " }}}
 
@@ -133,16 +144,6 @@ augroup filetype_asm
 augroup END
 " }}}
 
-" Python autocommands {{{
-augroup filetype_python
-    autocmd!
-    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python iabbrev  <buffer> iff if<space>False:<cr>
-    autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
-    autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
-augroup END
-" }}}
-
 " Bash autocommands {{{
 augroup filetype_bash
     autocmd!
@@ -168,3 +169,4 @@ function! OpenPcap()
 endfunction
 
 " }}}
+
