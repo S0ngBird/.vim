@@ -50,7 +50,7 @@ vnoremap <up> <nop>
 
 " Simple autocompletions {{{
 iabbrev ssig Written by: Benjamin Patton
-iabbrev @@ ben.patton01@gmail.com
+"iabbrev @@ ben.patton01@gmail.com
 " }}}
 
 " Some test operator-pending mappings {{{
@@ -70,9 +70,10 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 " }}}
 
 " Mappings for search/highlighting {{{
+nnoremap / /\v
 nnoremap <leader>w :match Error /\v\s+$/<cr>
 nnoremap <leader>W :match None<cr>
-"nnoremap <leader>vs 
+nnoremap noh :noh<cr>
 " }}}
 
 " Mappings for easier movement {{{
@@ -81,8 +82,14 @@ nnoremap H 0
 nnoremap L $
 nnoremap J G
 nnoremap K gg
-nnoremap <leader>. <c-w>l
-nnoremap <leader>, <c-w>h
+vnoremap H 0
+vnoremap L $
+vnoremap J G
+vnoremap K gg
+nnoremap <leader>L <c-w>l
+nnoremap <leader>H <c-w>h
+nnoremap <leader>J <c-w>j
+nnoremap <leader>K <c-w>k
 nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
@@ -152,21 +159,13 @@ augroup filetype_bash
 augroup END
 " }}}
 
-" Some Dope Functions {{{
+" This one's still a WIP
+"nnoremap <leader>pcap :execute "silent !wireshark " . shellescape("<cWORD>") ." &"
+nnoremap <leader>cn :cnext<cr>
+nnoremap <leader>cp :cprevious<cr>
 
-" SHOULD grep the whole working dir and all subdirs for word under cursor
-function! GrepWord()
-    let word = expand("<cword>")
-    execute '!grep --color=auto -r ' . word
-endfunction
-nnoremap <leader>gw :call GrepWord()<cr>
-
-" Opens the packet capture file under the cursor
-" Still not great, iTerm2 doesn't seem react very well
-function! OpenPcap()
-    let filename = expand("<cfile>")
-    execute 'silent !wireshark ' . filename . ' &'
-endfunction
-
-" }}}
-
+"
+" This is a piece of test text for trying out my new mappings
+" Isn't it the bee's knees? I think so too.
+" That's a nw piece of text that I'm going to use for the grep one
+"
