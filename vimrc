@@ -20,11 +20,11 @@ filetype plugin indent on
 " }}}
 
 " Set indentation stuff {{{
-let &tabstop=4
-let &autoindent=1
-let &softtabstop=4 
-let &shiftwidth=4
-let &expandtab=1
+set tabstop=4
+set autoindent
+set softtabstop=4 
+set shiftwidth=4
+set expandtab
 " }}}
 
 " Custom statusline {{{
