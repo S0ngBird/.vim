@@ -6,6 +6,8 @@ syntax on
 set number relativenumber
 set laststatus=2
 set splitright
+set nrformats+=alpha
+"set colorcolumn=79
 set nowrap
 set t_Co=256
 set hlsearch incsearch
@@ -51,6 +53,7 @@ vnoremap <up> <nop>
 " Simple autocompletions {{{
 iabbrev ssig Written by: Benjamin Patton
 "iabbrev @@ ben.patton01@gmail.com
+inoremap <leader><tab> <c-p>
 " }}}
 
 " Some test operator-pending mappings {{{
@@ -104,8 +107,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " Vimscript and vimrc things {{{
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sc :source %<cr>
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
@@ -117,9 +121,10 @@ augroup END
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python iabbrev  <buffer> iff if<space>False:<cr>
     autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
     autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
+    autocmd FileType python nnoremap <leader>str Bistr(<esc>Ea)<esc>
+    autocmd FileType python nnoremap <leader>__ bi__<esc>ea__<esc>
 augroup END
 " }}}
 
@@ -156,6 +161,14 @@ augroup filetype_bash
     autocmd!
     autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> iff if<space>
     autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> #! #!/bin/bash
+augroup END
+" }}}
+
+" XML autocommands {{{
+augroup filetype_xml
+    autocmd!
+    autocmd FileType xml setlocal foldmethod=marker
+    autocmd FileType xml setlocal foldlevel=0
 augroup END
 " }}}
 
