@@ -81,14 +81,6 @@ nnoremap noh :noh<cr>
 
 " Mappings for easier movement {{{
 inoremap jk <esc>
-nnoremap H 0
-nnoremap L $
-nnoremap J G
-nnoremap K gg
-vnoremap H 0
-vnoremap L $
-vnoremap J G
-vnoremap K gg
 nnoremap <leader>L <c-w>l
 nnoremap <leader>H <c-w>h
 nnoremap <leader>J <c-w>j
