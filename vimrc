@@ -81,10 +81,10 @@ nnoremap noh :noh<cr>
 
 " Mappings for easier movement {{{
 inoremap jk <esc>
-nnoremap <leader>L <c-w>l
-nnoremap <leader>H <c-w>h
-nnoremap <leader>J <c-w>j
-nnoremap <leader>K <c-w>k
+nnoremap <space>l <c-w>l
+nnoremap <space>h <c-w>h
+nnoremap <space>j <c-w>j
+nnoremap <space>k <c-w>k
 nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
@@ -112,7 +112,7 @@ augroup END
 " Python autocommands {{{
 augroup filetype_python
     autocmd!
-    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python nnoremap <buffer> <leader>c I#<esc>
     autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
     autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
     autocmd FileType python nnoremap <leader>str Bistr(<esc>Ea)<esc>
