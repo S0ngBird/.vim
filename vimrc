@@ -36,28 +36,21 @@ set statusline+=%04l/%04L   " show the current line number, out of the total
 " }}}
 
 " Turn off arrow keys {{{
-inoremap <left> <nop>
-inoremap <right> <nop>
-inoremap <down> <nop>
-inoremap <up> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <down> <nop>
-nnoremap <up> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
-vnoremap <down> <nop>
-vnoremap <up> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <down> <nop>
+noremap <up> <nop>
 " }}}
 
 " Simple autocompletions {{{
 iabbrev ssig Written by: Benjamin Patton
-"iabbrev @@ ben.patton01@gmail.com
 inoremap <leader><tab> <c-p>
 " }}}
 
 " Some test operator-pending mappings {{{
-onoremap in{ :<c-u>normal! f{vi{<cr>
+
+" 'inside next {, inside last }, etc.'
+onoremap in{ :<c-u>normal! f{vi{<cr> 
 onoremap il{ :<c-u>normal! F}vi{<cr>
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! f)vi(<cr>
@@ -99,8 +92,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " Vimscript and vimrc things {{{
-nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" Sources the current file
 nnoremap <leader>sc :source %<cr>
 augroup filetype_vim
     autocmd!
@@ -112,6 +106,8 @@ augroup END
 " Python autocommands {{{
 augroup filetype_python
     autocmd!
+    " The <buffer> option sets the mapping to buffer local, so
+    " they don't apply to different filetypes in the same window/tab
     autocmd FileType python nnoremap <buffer> <leader>c I#<esc>
     autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
     autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
@@ -159,18 +155,9 @@ augroup END
 " XML autocommands {{{
 augroup filetype_xml
     autocmd!
+    " Really just for folding
     autocmd FileType xml setlocal foldmethod=marker
     autocmd FileType xml setlocal foldlevel=0
 augroup END
 " }}}
 
-" This one's still a WIP
-"nnoremap <leader>pcap :execute "silent !wireshark " . shellescape("<cWORD>") ." &"
-nnoremap <leader>cn :cnext<cr>
-nnoremap <leader>cp :cprevious<cr>
-
-"
-" This is a piece of test text for trying out my new mappings
-" Isn't it the bee's knees? I think so too.
-" That's a nw piece of text that I'm going to use for the grep one
-"
