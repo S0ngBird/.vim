@@ -27,19 +27,11 @@ set shiftwidth=4
 set expandtab
 " }}}
 
-" Custom statusline {{{
-set statusline=%f           " shows the filename
-set statusline+=%=          " align everything else to the left
-set statusline+=%03c        " show the current column, out of the total
-set statusline+=\ -=-\      " a divider
-set statusline+=%04l/%04L   " show the current line number, out of the total
-" }}}
-
 " Turn off arrow keys {{{
-noremap <left> <nop>
-noremap <right> <nop>
-noremap <down> <nop>
-noremap <up> <nop>
+noremap <left> :echom "Arrow keys are off. Get rekt, n00b"<cr>
+noremap <right> :echom "Arrow keys are off. Get rekt, n00b"<cr>
+noremap <down> :echom "Arrow keys are off. Get rekt, n00b"<cr>
+noremap <up> :echom "Arrow keys are off. Get rekt, n00b"<cr>
 " }}}
 
 " Simple autocompletions {{{
@@ -84,11 +76,18 @@ nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " Plugin mappings and autocommands {{{
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap gs :Gstatus<cr>
-
 nnoremap <leader>// :NERDTreeToggle<cr>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" for markymark
+nnoremap <leader>ds :DocStart<cr>
+nnoremap <leader>vd :ViewPage<cr>
+nnoremap <leader>ct :CompleteTag<cr>
+
+" This one is for rolling rew when I need to redraw the screen
+nnoremap rew :silent redraw!<cr>
 " }}}
 
 " Vimscript and vimrc things {{{
@@ -109,7 +108,7 @@ augroup filetype_python
     " The <buffer> option sets the mapping to buffer local, so
     " they don't apply to different filetypes in the same window/tab
     autocmd FileType python nnoremap <buffer> <leader>c I#<esc>
-    autocmd FileType python nnoremap <buffer> <s-r><cr> :!python %<cr>
+    autocmd FileType python nnoremap <buffer> <s-r><cr> :python3 %<cr>:redraw!<cr>
     autocmd FileType python iabbrev  <buffer> #! #!/usr/bin/env python3
     autocmd FileType python nnoremap <leader>str Bistr(<esc>Ea)<esc>
     autocmd FileType python nnoremap <leader>__ bi__<esc>ea__<esc>
@@ -138,9 +137,9 @@ augroup filetype_asm
     autocmd!
 
     " basically just getting the indentation all nice and kernally
-    autocmd FileType asm set tabstop=8
-    autocmd FileType asm set softtabstop=8
-    autocmd FileType asm set shiftwidth=8
+    autocmd FileType asm setlocal tabstop=8
+    autocmd FileType asm setlocal softtabstop=8
+    autocmd FileType asm setlocal shiftwidth=8
 augroup END
 " }}}
 
@@ -161,3 +160,11 @@ augroup filetype_xml
 augroup END
 " }}}
 
+" TCL autocommands {{{
+augroup filetype_tcl
+    autocmd!
+    autocmd Filetype tcl setlocal tabstop=4
+    autocmd Filetype tcl setlocal softtabstop=4
+    autocmd Filetype tcl setlocal shiftwidth=4
+augroup END
+" }}}
