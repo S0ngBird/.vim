@@ -6,12 +6,14 @@ syntax on
 set number relativenumber
 set laststatus=2
 set splitright
+set splitbelow
+set autoread
 set nrformats+=alpha
-"set colorcolumn=79
 set nowrap
 set t_Co=256
 set hlsearch incsearch
-colorscheme nightingale
+colorscheme kuroi
+set background=dark
 " }}}
 
 " Turn on pathogen {{{
@@ -166,5 +168,14 @@ augroup filetype_tcl
     autocmd Filetype tcl setlocal tabstop=4
     autocmd Filetype tcl setlocal softtabstop=4
     autocmd Filetype tcl setlocal shiftwidth=4
+augroup END
+" }}}
+
+" YAML autocommands {{{
+augroup filetype_tcl
+    autocmd!
+    autocmd Filetype yaml setlocal tabstop=2
+    autocmd Filetype yaml setlocal softtabstop=2
+    autocmd Filetype yaml setlocal shiftwidth=2
 augroup END
 " }}}
