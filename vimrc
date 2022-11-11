@@ -79,14 +79,9 @@ nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap gs :Gstatus<cr>
 nnoremap <leader>// :NERDTreeToggle<cr>
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" for markymark
-nnoremap <leader>ds :DocStart<cr>
-nnoremap <leader>vd :ViewPage<cr>
-nnoremap <leader>ct :CompleteTag<cr>
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " This one is for rolling rew when I need to redraw the screen
 nnoremap rew :silent redraw!<cr>
