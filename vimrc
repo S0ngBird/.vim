@@ -15,17 +15,16 @@ set hlsearch incsearch
 set background=dark
 " }}}
 
-" Turn on pathogen {{{
-execute pathogen#infect()
-filetype plugin indent on
+" Turn on vimplug {{{ 
+call plug#begin()
+Plug 'mhartington/oceanic-next'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/tagbar'
+call plug#end()
 " }}}
 
 " Colorscheme settings {{{
-" for vim 8
-" if (has("termguicolors"))
-"  set termguicolors
-" endif
-
 colorscheme OceanicNext
 " }}}
 
