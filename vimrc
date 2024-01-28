@@ -12,13 +12,21 @@ set nrformats+=alpha
 set nowrap
 set t_Co=256
 set hlsearch incsearch
-colorscheme kuroi
 set background=dark
 " }}}
 
 " Turn on pathogen {{{
 execute pathogen#infect()
 filetype plugin indent on
+" }}}
+
+" Colorscheme settings {{{
+" for vim 8
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
+
+colorscheme OceanicNext
 " }}}
 
 " Set indentation stuff {{{
@@ -112,48 +120,11 @@ augroup filetype_python
 augroup END
 " }}}
 
-" C/CPP autocommands {{{
-augroup filetype_c_cpp
-    autocmd!
-    " Simple C/CPP autocommands
-    autocmd FileType c,cpp set comments-=:// comments+=f://
-    autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType c,cpp iabbrev  <buffer> iff if<space>(false)<cr>{<cr>}
-    autocmd FileType c,cpp nnoremap <buffer> <s-r><cr> :!make
-    autocmd FileType c,cpp set tabstop=8
-    autocmd FileType c,cpp set softtabstop=8
-    autocmd FileType c,cpp set shiftwidth=8
-
-    " Starting comment
-    autocmd FileType c,cpp iabbrev <buffer> csig /**<cr>FILENAME<cr>DESCRIPTION<cr><cr>Written by: Ben Patton<cr><bs>/
-augroup END
-" }}}
-
-" ASM autocommands {{{
-augroup filetype_asm
-    autocmd!
-
-    " basically just getting the indentation all nice and kernally
-    autocmd FileType asm setlocal tabstop=8
-    autocmd FileType asm setlocal softtabstop=8
-    autocmd FileType asm setlocal shiftwidth=8
-augroup END
-" }}}
-
 " Bash autocommands {{{
 augroup filetype_bash
     autocmd!
     autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> iff if<space>
     autocmd BufNewFile,BufReadPre *.sh iabbrev <buffer> #! #!/bin/bash
-augroup END
-" }}}
-
-" XML autocommands {{{
-augroup filetype_xml
-    autocmd!
-    " Really just for folding
-    autocmd FileType xml setlocal foldmethod=marker
-    autocmd FileType xml setlocal foldlevel=0
 augroup END
 " }}}
 

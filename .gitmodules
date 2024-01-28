@@ -10,3 +10,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/oceanic-next"]
+	path = bundle/oceanic-next
+	url = https://github.com/mhartington/oceanic-next.git
