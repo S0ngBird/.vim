@@ -21,6 +21,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/tagbar'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 " }}}
 
@@ -75,20 +76,19 @@ nnoremap noh :noh<cr>
 
 " Mappings for easier movement {{{
 inoremap jk <esc>
-nnoremap <space>l <c-w>l
-nnoremap <space>h <c-w>h
-nnoremap <space>j <c-w>j
-nnoremap <space>k <c-w>k
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>op :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
 " Plugin mappings and autocommands {{{
 nnoremap <F8> :TagbarToggle<CR>
-nnoremap gs :Gstatus<cr>
 nnoremap <leader>// :NERDTreeToggle<cr>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * execute "normal! :NERDTreeToggle\<cr>\<c-w>l" 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " This one is for rolling rew when I need to redraw the screen
 nnoremap rew :silent redraw!<cr>
@@ -117,6 +117,7 @@ augroup filetype_python
     autocmd FileType python nnoremap <leader>str Bistr(<esc>Ea)<esc>
     autocmd FileType python nnoremap <leader>__ bi__<esc>ea__<esc>
 augroup END
+
 " }}}
 
 " Bash autocommands {{{
